@@ -1,0 +1,7 @@
+{
+  "name": "pixeline",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
