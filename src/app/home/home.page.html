@@ -1,20 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content ion-padding>
+  <!-- Showing splash Screen with scaling animation -->
+  <div class="pixe" [ngClass]="{'show': showImage}" *ngIf="currentStep === 0">
+    <ion-img [src]="'assets/logo/1logo.jpeg'" ></ion-img> 
   </div>
+
+
+  <!-- here Showing steps with content  -->
+  <div class="step-container" *ngIf="currentStep > 0">
+    <ion-img [src]="steps[currentStep - 1].image"></ion-img>
+    <ion-text>
+      <h2>{{ steps[currentStep-1].head }}</h2>
+    </ion-text>
+    <ion-text>
+      <p>{{ steps[currentStep-1].p }}</p>
+    </ion-text>
+
+
+    <!-- Progress bar -->
+    <div class="progress-bar">
+      <div *ngFor="let step of steps; let i = index" 
+           [ngClass]="{'active': currentStep > i, 'current': currentStep === i + 1}">
+      </div>
+    </div>
+
+    <!-- here Navigation button for go to the next step -->
+    <ion-button  class="circle" (click)="nextStep()" *ngIf="currentStep < steps.length ; else getstarted" shape="round">
+      <ion-icon name="arrow-forward-outline" style="font-size: large;" ></ion-icon>
+    </ion-button>
+
+    <!-- here Final button  -->
+    <ng-template #getstarted>
+      <ion-button routerLink="/home" class="get-started" shape="round">Get Started</ion-button>
+    </ng-template>
+  </div>
+  
 </ion-content>
