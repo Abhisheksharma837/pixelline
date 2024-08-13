@@ -19,7 +19,7 @@
     <!-- Progress bar -->
     <div class="progress-bar">
       <div *ngFor="let step of steps; let i = index" 
-           [ngClass]="{'active': currentStep > i, 'current': currentStep === i + 1}">
+           [ngClass]="{'active': i === currentStep-1, 'completed': i < currentStep-1}">
       </div>
     </div>
 
@@ -30,7 +30,7 @@
 
     <!-- here Final button  -->
     <ng-template #getstarted>
-      <ion-button routerLink="/home" class="get-started" shape="round">Get Started</ion-button>
+      <ion-button routerLink="/signup" class="get-started" shape="round">Get Started</ion-button>
     </ng-template>
   </div>
   

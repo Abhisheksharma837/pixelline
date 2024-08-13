@@ -1,0 +1,33 @@
+<ion-content ion-padding>
+  <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+  <div class="signup-container">
+    <h1 class="signup-heading">Sign up</h1>
+    <p class="signup-subheading"  style="text-align: start; margin-inline: 8%;">Create your account</p>
+    <ion-item>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-input formControlName="name" class = "placedetails " placeholder="Enter Your Name"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-input formControlName="emailOrPhone" class = "placedetails " placeholder="Enter Your Email"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-icon name="call-outline" slot="start"></ion-icon>
+      <ion-input formControlName="emailOrPhone"   class = "placedetails " placeholder="Enter Your Phone No."></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-input  formControlName="password"  class = "placedetails " type="password" placeholder="Enter Your Password"></ion-input>
+    </ion-item>
+
+    <ion-button  type="submit" [disabled]="signupForm.invalid" class="signup-button" routerLink="/home">Sign up</ion-button>
+    
+  </div>
+  <div class="login-text">
+    <p>Already have an account? <ion-router-link routerLink="/login" color="primary" >Log in</ion-router-link></p>
+  </div>
+  </form>
+</ion-content>

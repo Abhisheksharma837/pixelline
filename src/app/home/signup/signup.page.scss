@@ -1,0 +1,100 @@
+ion-content {
+    --background: #ffffff; /* Background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .signup-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .signup-heading {
+    width: 142px;
+    height: 30px;
+    margin-top: 100px;
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    font-weight: 650;// bold manage here 
+    line-height:10px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: black;
+    margin-bottom: 3px;
+  }
+  
+  .signup-subheading {
+    width: 135px;
+    height: 30px;
+    margin-top: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 200px;
+    text-align: center;
+    opacity: 0.6;
+    color: #666;
+  }
+  .placedetails{
+    color: #636363;
+    font-size: 14px;
+  }
+  
+  ion-item {
+    width: 90%;
+    margin-top: 16px;
+    --background: #f8f8f8;
+    --border-radius: 12px;
+    --padding-start: 5px;  // Reduces the padding at the start of the item
+    --inner-padding-end: 0px;  // Reduces the padding between the icon and input
+    --padding-end: 0px;  // Reduces the padding at the end of the item
+    --highlight-color-focused: transparent;
+    --border-color: transparent;
+    --inner-border-width: 0px;
+    --inner-box-shadow: none;
+  }
+  
+  ion-icon {
+    font-size: 28px;// icon size    
+    color: #000000; // icon color 
+    margin-right: 5px; 
+    border-bottom: none;
+    box-shadow: none;
+  }
+  ion-input {
+    margin-left: 2px;  // Removes any left margin from the input
+  }
+  ion-router-link{
+    color: #000000;
+    font-weight: bold;
+  }
+    
+  .signup-button {
+    display: flex;
+    justify-content: center;
+    width: 230px;
+    margin-top: 45px;
+    --background: #ffc107;
+    --border-radius: 25px;
+    font-size: 18px;
+    font-weight: 450;
+    align-items: center;
+    text-transform: none; /* alphabets are in captial globally  so  I Add this line to prevent uppercase text */
+  }
+
+  .login-text {
+    text-align: center;
+    margin-top: 100px;
+
+
+    p {
+      font-weight: 450;
+      font-size: 14px;
+      color: #6A798A; // color of 
+    }
+  }
+  
+  
