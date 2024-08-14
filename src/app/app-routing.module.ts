@@ -26,6 +26,14 @@ const routes: Routes = [
   {
     path: 'walkthrough',
     loadChildren: () => import('./walkthrough/walkthrough.module').then( m => m.WalkthroughPageModule)
+  },
+  {
+    path: 'forget-password',
+    loadChildren: () => import('./forget-password/forget-password.module').then( m => m.ForgetPasswordPageModule)
+  },
+  {
+    path: 'create-new-password',
+    loadChildren: () => import('./create-new-password/create-new-password.module').then( m => m.CreateNewPasswordPageModule)
   }
  
 ];
