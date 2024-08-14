@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { SignupPageRoutingModule } from './signup/signup-routing.module';
+import { SignupPageRoutingModule } from '../signup/signup-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -14,7 +15,9 @@ import { SignupPageRoutingModule } from './signup/signup-routing.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    SignupPageRoutingModule
+    SignupPageRoutingModule,
+    RouterModule,
+
   ],
   declarations: [HomePage]
 })

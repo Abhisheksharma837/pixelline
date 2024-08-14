@@ -1,0 +1,74 @@
+ion-content {
+    --background: #ffffff; /* Background color for ion-content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+   
+  }
+
+  
+  .help-button {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    text-transform: none; /* Ensures the text is not in all caps */
+    font-size: 16px; /* Adjusts font size */
+    padding: 0 10px;
+    color: #000000; /* Black text color */
+    --background: #ffffff; /* White background color */
+    --box-shadow: none; /* Removes default shadow if any */
+  }
+  
+  .coupon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  .coupon-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  .code-input-container {
+    width: 80%;
+    --background: #f8f8f8;
+    --border-radius: 20px;
+    --padding-start: 10px;
+    --inner-padding-end: 10px;
+    --padding-end: 10px;
+    --highlight-color-focused: transparent;
+    --border-color: transparent;
+    --inner-border-width: 0px;
+    --inner-box-shadow: none;
+    margin-bottom: 40px;
+  }
+  
+  .code-input {
+    text-align: center;
+    color: #636363;
+    font-size: 16px;
+    scroll-padding-bottom: 200px;
+  }
+  
+  .continue-button {
+    width: 80%;
+    height: 50px;
+    --background: #ffc107;
+    --border-radius: 25px;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: none;
+    color: #000000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  

@@ -1,0 +1,179 @@
+ion-content {
+    --background: #272727; 
+    overflow: hidden; 
+  }
+
+  .pixe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .pixe.show {
+    opacity: 1;
+    animation: scaleUp 1s forwards;
+  }
+  
+ 
+  @keyframes scaleUp {
+    from {
+      transform: scale(0.5); 
+    }
+    to {
+      transform: scale(1); 
+    }
+  }
+
+  .step-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  height: auto; 
+  transition: opacity 1s ease-in-out;
+  background-color: #f8f9fa; 
+
+  }
+  
+  .step-container ion-img {
+  border-radius: 25px; 
+  width: 450px;//  giving curve  width  450px
+  height: 580px; // giving curve height 580px
+  border-radius: 0px 0px 55px 55px; // giving border radius or curve 
+  object-fit: cover; 
+  margin-top: -14px; // for image fit on display
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  //  giving shadow for smoother visual
+  }
+  
+  
+  .step-container h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000; 
+    margin-top: 43px; 
+  }
+  
+  .step-container p {
+    font-size: 1rem;
+    color: #666666; 
+    margin-top: 5px; 
+    padding: 0 20px; 
+  }
+  
+  .step-container ion-button.circle {
+    margin-top: 35px;
+    --background: #ffcc00; 
+    border-radius: 999px; 
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+   
+  .step-container ion-icon {
+    font-size: 250px ; 
+    color: #000000;
+  }
+  .step-container ion-text {
+    width: 80%; 
+    margin: 0 auto;
+  }
+ 
+  /* Progress Bar */
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    div {
+        width: 10px;
+        height: 5px;
+        margin: 0 1px; /* Adjust distance between dots */
+        background-color: #cccccc; /* Default color for unfilled dots */
+        border-radius: 10px; /* Default shape as circle */
+        transition: background-color 0.3s ease, border-radius 0.3s ease, width 0.3s ease, height 0.3s ease;
+    
+        &.active {
+          background-color: #ffcc00; /* Color for the filled dot */
+          border-radius: 10px; /* Change shape to rectangle */
+          width: 40px; /* Change width for the filled dot */
+          height: 5px; /* Maintain height for the filled dot */
+        }
+    
+        &.completed {
+          background-color: #cccccc; /* Color for the unfilled dot */
+          border-radius: 10px; /* Change back to circle */
+          width: 10px; /* Reset width */
+          height: 5px; /* Reset height */
+        }
+      }
+    
+  }
+
+  .progress-bar div {
+    width: 10px;
+    height: 5px;
+    background-color: #d3d3d3;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+
+
+
+.progress-bar div.active,
+.progress-bar div.current {
+  background-color: #ffcc00; /* Active/Current dot color */
+}
+
+.progress-bar div.current {
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+/* Styles for the Get Started button */
+.step-container ion-button.get-started {
+    padding: 10px 20px; 
+    border-radius: 20px; 
+    font-size: 16px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000; /* Text color */
+  }
+  
+  .step-container ion-button.get-started::part(native) {
+    margin-top: 35px;
+    padding-block: 1rem; /* Adjust padding inside the button */
+    border-radius: 25px; /* Ensure border-radius is applied */
+    background: #ffcc00; /* Ensure background color is applied */
+    font-size: 16px; /* Font size for the text */
+  }
+  
+  /* Optional: Customize text color and other styles */
+  .step-container ion-button.get-started ion-label {
+    color: #ffffff; /* Text color */
+  }
+  
+
+  

@@ -34,7 +34,7 @@ export class SignupPage implements OnInit {
   }
   onSignup() {
     if (this.signupForm.valid) {
-
+      
     }
   }
 }
