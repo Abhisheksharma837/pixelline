@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { ToastIndicatorService } from '../services/toastIndicator/toast-indicator.service';
 
 
 interface Step {
@@ -20,7 +21,9 @@ export class WalkthroughPage implements OnInit {
   public showImage: boolean;
   private stepSubject: Subject<number>;
 
-  constructor() {
+  constructor(
+    private toastService: ToastIndicatorService,
+  ) {
     this.steps = [
       {
         head: 'Write Smarter',
@@ -83,7 +86,7 @@ export class WalkthroughPage implements OnInit {
       this.stepSubject.next(this.currentStep + 1);
     }
     console.log(this.currentStep);
-    
+    // this.toastService.showToast('Walk Through',"top");
   }
 
 }
