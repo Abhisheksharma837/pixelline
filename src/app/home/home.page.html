@@ -1,0 +1,110 @@
+<ion-header>
+    <ion-toolbar>
+        <!-- Hamburger menu button (☰) -->
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button> <!-- This opens the side menu -->
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<!-- Side Menu -->
+<ion-menu content-id="main-content" side="start">
+    <ion-content>
+        <!-- Profile Section -->
+        <ion-item lines="none">
+            <ion-avatar slot="start">
+                <img src="assets/logo/2smarter.jpeg" alt="Profile Image">
+            </ion-avatar>
+            <ion-label>
+                <h2>{{name}}</h2>
+                <p>{{email}}</p>
+            </ion-label>
+            <ion-button slot="end" fill="clear" color="primary" routerLink="/profile-setting">
+                <ion-icon  name="settings-outline"></ion-icon>
+            </ion-button>
+        </ion-item>
+
+        <!-- Menu Options -->
+        <ion-list>
+            <ion-item button>
+                <ion-label>History</ion-label>
+            </ion-item>
+            <ion-item button>
+                <ion-label>How to Work</ion-label>
+            </ion-item>
+            <ion-item button>
+                <ion-label>Contact Us</ion-label>
+            </ion-item>
+            <ion-item button>
+                <ion-label>Help</ion-label>
+            </ion-item>
+            <ion-item button>
+                <ion-label>Privacy</ion-label>
+            </ion-item>
+            <ion-item button>
+                <ion-label>Subscription</ion-label>
+            </ion-item>
+            <ion-item button>
+                <ion-label color="danger">Logout</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<!-- Main Content -->
+<ion-content id="main-content">
+    <!-- Favourite Section -->
+    <ion-list>
+        <ion-item lines="none">
+            <ion-label>
+                <h2>Favourite</h2>
+            </ion-label>
+            <ion-icon name="bookmark" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col size="6" *ngFor="let item of favouriteItems">
+                    <ion-card>
+                        <img [src]="item.image" alt="Image for {{ item.name }}">
+                        <ion-card-content>
+                            <h3>{{ item.name }}</h3>
+                            <ion-icon name="bookmark" slot="end"></ion-icon> <!-- Added bookmark icon this bookmark are not using any scss its going by defalut top & right position  -->
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+
+    <!-- Divider Line -->
+    <div class="section-divider"></div>
+
+    <!-- Newest Scan Section -->
+    <ion-list>
+        <ion-item lines="none">
+            <ion-label>
+                <h2>Newest Scan</h2>
+            </ion-label>
+        </ion-item>
+        <ion-grid>
+            <ion-row>
+                <ion-col size="6" *ngFor="let scan of newestScanItems">
+                    <ion-card>
+                        <img [src]="scan.image" alt="Image for {{ scan.name }}">
+                        <ion-card-content>
+                            <h3>{{ scan.name }}</h3>
+                            <ion-icon name="bookmark-outline" slot="end"></ion-icon> <!-- Added bookmark icon -->
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+    <!-- Floating Camera Button -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+            <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

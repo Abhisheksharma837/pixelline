@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'create-new-password',
     loadChildren: () => import('./create-new-password/create-new-password.module').then( m => m.CreateNewPasswordPageModule)
+  },
+  {
+    path: 'profile-setting',
+    loadChildren: () => import('./profile-setting/profile-setting.module').then( m => m.ProfileSettingPageModule)
   }
  
 ];
