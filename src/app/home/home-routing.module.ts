@@ -7,6 +7,14 @@ const routes: Routes = [
     path: '',
     component: HomePage,
   },
+  { //By default Importing routing in this home-routing.module
+    path: 'profile-setting',
+    loadChildren: () => import('./setting/profile-setting/profile-setting.module').then( m => m.ProfileSettingPageModule)
+  },
+  {
+    path: 'edit-profile',
+    loadChildren: () => import('./setting/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
+  },
 
  
 ];

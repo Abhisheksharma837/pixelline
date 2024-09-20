@@ -5,11 +5,14 @@ ion-header {
         box-shadow: none; /* Remove any shadows */
         border: none; /* Ensure no borders */
         --border-color: transparent; /* Make sure border color is transparent */
+        border: none !important; /* Remove border forcefully */
     }
-}
 
-ion-toolbar {
-    border: none !important; /* Remove border forcefully */
+    ion-icon{
+        color: royalblue;
+    }
+
+
 }
 
 // ion-title {

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="edit-profile-content">
+  <div class="profile-image-container">
+    <img src="assets/logo/2smarter.jpeg" alt="Profile Image" class="profile-image" />
+    <ion-icon name="camera-outline" class="camera-icon"></ion-icon>
+  </div>
+  <ion-list >
+    <ion-item lines="none">
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input type="text" placeholder="Enter your name"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" placeholder="Enter your email"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="stacked">Date of Birth</ion-label>
+      <ion-input type="text" placeholder="DD - MM - YYYY"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="stacked">Gender</ion-label>
+      <ion-select placeholder="Select Gender">
+        <ion-select-option value="male">Male</ion-select-option>
+        <ion-select-option value="female">Female</ion-select-option>
+        <ion-select-option value="other">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" color="danger" class="save-button">Save</ion-button>
+</ion-footer>

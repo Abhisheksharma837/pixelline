@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-profile-setting',
   templateUrl: './profile-setting.page.html',
@@ -8,14 +9,14 @@ import { NavController } from '@ionic/angular';
 })
 export class ProfileSettingPage implements OnInit {
 
-  constructor(private navCtrl: NavController)
-   { 
-
-   }
+  constructor(
+    private navCtrl: NavController,
+    
+  ) { }
 
   ngOnInit() {
   }
-
+  
   editProfile() {
     // Navigate to edit profile page
     this.navCtrl.navigateForward('/edit-profile');
