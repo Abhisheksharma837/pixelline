@@ -13,24 +13,40 @@ ion-content {
     align-items: center;
   }
   
+  .error-text {
+    color: #e74c3c; /* Red color for error text */
+    font-size: 12px; /* Small font size */
+    margin-top: 4px; /* Space between input and error message */
+    display: block; /* Ensure it's on a new line */
+  }
+  
+  .signup-container small {
+    color: #d80b0b;
+    font-size: 12px;
+    display: block;
+    margin-top: 4px;
+  }
+  .signup-container .password-strength-blue {
+    color: rgb(11, 63, 159);  /* Apply blue color for password strength */
+  }
+  
   .signup-heading {
     width: 142px;
     height: 30px;
-    margin-top: 100px;
+    margin-top: 60px;
+    position: relative;
     font-family: 'Inter', sans-serif;
     font-size: 36px;
     font-weight: 650;// bold manage here 
-    line-height:10px;
-    letter-spacing: 1px;
     text-align: center;
     color: black;
     margin-bottom: 3px;
   }
   
   .signup-subheading {
-    width: 135px;
-    height: 30px;
-    margin-top: 0;
+    // width: 135px; -- not necessary
+    // height: 30px; -- not necessary
+    margin-top: 15px;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 200px;

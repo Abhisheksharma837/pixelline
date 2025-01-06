@@ -1,0 +1,97 @@
+<ion-header [style.visibility]="content_visibility">
+    <ion-toolbar>
+        <div class="logo-container">
+            <img src="assets/logo/pixeline resize logo.png" alt="Profile Image" class="logo">
+        </div>
+        <ion-buttons slot="end">
+            <ion-button (click)="toggleSearch()" color="light">
+                <ion-icon color="light" name="search-outline" color="white"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-item *ngIf="isSearching">
+        <ion-input [(ngModel)]="searchTerm" placeholder="Search by filename" (ionInput)="searchReports()"></ion-input>
+        <ion-icon color="light" name="close-outline" slot="end" (click)="clearSearch()"></ion-icon>
+    </ion-item>
+</ion-header>
+
+<ion-content [style.visibility]="content_visibility">
+    <ng-template #noResultsTemplate>
+        <ion-item>
+            <ion-label>No results found</ion-label>
+            <ion-icon color="light" name="close-outline" slot="end" (click)="clearSearch()"></ion-icon>
+        </ion-item>
+    </ng-template>
+    <div class="recent-scans-container">
+        <h2>Recent Scans</h2>
+        <swiper-container [loop]="true" navigation="true" slides-per-view="4" grid-cols="4">
+            <swiper-slide *ngFor="let step of steps">
+                <div class="scan-item">
+                    <div class="scan-thumbnail">
+                        <img [src]="step.videoSrc" alt="">
+                    </div>
+                    <p class="scan-title">this is title</p>
+                    <p class="scan-pages">Pages: 1</p>
+                    <ion-icon color="warning" name="bookmark" class="bookmark-icon"></ion-icon>
+                </div>
+            </swiper-slide>
+        </swiper-container>
+    </div>
+    <div class="recent-scans-container">
+        <h2>Favourite Scans</h2>
+        <swiper-container [loop]="true" navigation="true" slides-per-view="4" grid-cols="4">
+            <swiper-slide *ngFor="let step of steps">
+                <div class="scan-item">
+                    <div class="scan-thumbnail">
+                        <img [src]="step.videoSrc" alt="">
+                    </div>
+                    <p class="scan-title">this is title</p>
+                    <p class="scan-pages">Pages: 1</p>
+                    <ion-icon color="warning" name="bookmark" class="bookmark-icon"></ion-icon>
+                </div>
+            </swiper-slide>
+        </swiper-container>
+    </div>
+
+    <div class="recent-scans-container">
+        <h2>All Scans</h2>
+        <div class="container">
+            <div class="scan-item1" *ngFor="let step of steps">
+                <div class="scan-thumbnail1">
+                    <img [src]="step.videoSrc" alt="">
+                </div>
+                <p class="scan-title">this is title</p>
+                <p class="scan-pages">Pages: 1</p>
+                <ion-icon color="warning" name="bookmark" class="bookmark-icon1"></ion-icon>
+            </div>
+        </div>
+    </div>
+    <!-- Scan QR Code Button Initially -->
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="scanBarcode()" style="--width: 80px; --height: 80px;">
+            <ion-icon color="light" name="camera-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <div class="dismiss-button-container" *ngIf="getScan && scannedPages.length > 0">
+        <ion-row class="dismiss-row">
+            <ion-col size="3" (click)="stopScan()">
+                <ion-icon name="trash-outline"></ion-icon>
+                <p>Discard</p>
+            </ion-col>
+            <ion-col size="6" style="margin-bottom: 10px;position: relative">
+                <ion-badge class="responsive-badge">{{scannedPages?.length}}</ion-badge>
+                <ion-img class="responsive-image" [src]="scannedPages[0]?.image || 'assets/logo/1logo.jpeg'"></ion-img>
+            </ion-col>
+            <ion-col size="3">
+                <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+                <p>Next</p>
+            </ion-col>
+        </ion-row>
+    </div>
+    <div
+    *ngIf="getScan"
+    id="scanner-screen"
+    (click)="handleScannerClick($event)">
+  </div>
+  <canvas *ngIf="getScan" #canvas hidden></canvas>
+</ion-content>

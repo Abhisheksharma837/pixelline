@@ -1,10 +1,18 @@
 <ion-content>
-  <ion-button class="help-button">Help</ion-button>
-  <div class="coupon-container">
-    <h2 class="coupon-title">Please Enter Your Code</h2>
-    <ion-item class="code-input-container">
-      <ion-input placeholder="Enter Your Code" class="code-input"></ion-input>
-    </ion-item>
-    <ion-button expand="block" class="continue-button">continue</ion-button>
-  </div>
+  <ion-button class="help-button" routerLink="/help-page">Help</ion-button>
+  <form [formGroup]="couponForm"> <!-- Add formGroup here -->
+    <div class="coupon-container">
+      <h2 class="coupon-title">Please Enter Your Code</h2>
+      <ion-item class="code-input-container">
+        <ion-input placeholder="e.g., LOIJ0998NHFR" class="code-input" formControlName="couponCode" 
+          ></ion-input>
+      </ion-item>
+      <ion-button expand="block" class="continue-button" (click)="verifyCoupon()" [disabled]="couponForm.get('couponCode')?.invalid ">
+        {{ isVerifying ? 'Verify' : 'Verify'}}
+      </ion-button>
+      <!-- <ion-button expand="block" class="continue-button" [disabled]="!isCouponValid"
+        (click)="continue()">continue
+      </ion-button> -->
+    </div>
+  </form> <!-- Close formGroup -->
 </ion-content>

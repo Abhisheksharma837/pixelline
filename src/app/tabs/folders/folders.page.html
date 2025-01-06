@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+      <div class="logo-container">
+          <img src="assets/Folders-image.png" alt="Profile Image" class="logo">
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- maths Folder-->
+  <div class="recent-scans-container">
+      <h2>Maths Folder(4)</h2>
+      <ion-label style="position: absolute;right: 19px;top: 24px;">
+        <ion-icon (click)="showList()" style="font-size: 20px;" [name]="showHide ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
+      </ion-label>
+    <div class="container" *ngIf="showHide">
+        <div class="scan-item1" *ngFor="let step of steps">
+            <div class="scan-thumbnail1">
+                <img [src]="step.videoSrc" alt="">
+            </div>
+            <p class="scan-title">this is title</p>
+            <p class="scan-pages">Pages: 1</p>
+            <ion-icon color="warning" name="bookmark" class="bookmark-icon1"></ion-icon>
+        </div>
+    </div>
+</div>
+
+<!-- english writing -->
+
+<div class="recent-scans-container">
+  <h2>English Writing(0)</h2>
+  <ion-label style="font-size: 20px;
+  float: right;
+  margin-top: -35px;">
+    <ion-icon (click)="EnglishItem()" style="font-size: 20px;" [name]="EnglishItems ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
+  </ion-label>
+<div class="container" *ngIf="EnglishItems">
+    <div class="scan-item1" *ngFor="let step of steps">
+        <div class="scan-thumbnail1">
+            <img [src]="step.videoSrc" alt="">
+        </div>
+        <p class="scan-title">this is title</p>
+        <p class="scan-pages">Pages: 1</p>
+        <ion-icon color="warning" name="bookmark" class="bookmark-icon1"></ion-icon>
+    </div>
+</div>
+</div>
+</ion-content>

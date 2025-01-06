@@ -1,17 +1,36 @@
 <ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
   <div class="login-container">
     <h2 class="login-title">Welcome Back</h2>
     <p class="login-subtitle">Enter your email and password for login</p>
-    <ion-item class="input-container">
-      <ion-icon name="mail-outline"></ion-icon>
-      <ion-input placeholder="Enter Your Email" class="login-input"></ion-input>
+
+    <ion-item class="input-container" >
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-input placeholder="Enter Your Email" formControlName="email" type="email" class="login-input"></ion-input>
     </ion-item>
-    <ion-item class="input-container">
-      <ion-icon name="lock-closed-outline"></ion-icon>
-      <ion-input placeholder="Enter Your Password" class="login-input"></ion-input>
+    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+      <small class="error-text">Please enter a valid email</small>
+    </div>
+    <!-- <ion-item *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+      <ion-note color="danger">Invalid email format</ion-note>
+    </ion-item> -->
+
+    <ion-item class="input-container" >
+      <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+      <ion-input placeholder="Enter Your Password" formControlName="password" type="password" (ionInput)="evaluatePasswordStrength($event.detail.value || '')" class="login-input"></ion-input>
     </ion-item>
-    <p class="forgot-password"><ion-router-link routerLink="/forget-password" class="forget-link">Forget Password?</ion-router-link></p>
-    <ion-button expand="block" class="login-button" routerLink="/home">Login Now</ion-button>
-    <p class="signup-text">Don't have an account? <ion-router-link routerLink="/signup" class="signup-link">Sign up</ion-router-link></p>
+    
+    <!-- <ion-item *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+      <ion-note color="danger">Password must be at least 8 characters</ion-note>
+    </ion-item> -->
+
+    <p class="forgot-password">
+      <ion-router-link routerLink="/forget-password" class="forget-link">Forget Password?</ion-router-link>
+    </p>
+    <ion-button expand="block" class="login-button"  [disabled]="loginForm.invalid"  (click)="onLogin()" shape="round">Login Now</ion-button>
+    <p class="signup-text">Don't have an account? 
+      <ion-router-link routerLink="/signup" class="signup-link">Sign up</ion-router-link>
+    </p>
   </div>
+</form>
 </ion-content>

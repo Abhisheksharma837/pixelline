@@ -1,12 +1,12 @@
-<ion-content ion-padding>
-  <!-- Showing splash Screen with scaling animation -->
-  <div class="pixe" [ngClass]="{'show': showImage}" *ngIf="currentStep === 0">
-    <ion-img [src]="'assets/logo/1logo.jpeg'" ></ion-img> 
-  </div>
+<!-- Showing splash Screen with scaling animation -->
+<div class="pixe" [ngClass]="{'show': showImage}" *ngIf="currentStep === 0">
+  <ion-img [src]="'assets/logo/1logo.jpeg'" ></ion-img> 
+</div>
 
 
+<ion-content ion-padding class="no-gap-content">
   <!--  Showing steps with content  -->
-  <div class="step-container" *ngIf="currentStep > 0">
+  <div class="step-container"  *ngIf="currentStep > 0">
     <ion-img [src]="steps[currentStep - 1].image"></ion-img>
     <ion-text>
       <h2>{{ steps[currentStep-1].head }}</h2>
@@ -35,3 +35,6 @@
   </div>
   
 </ion-content>
+
+<!-- Optional global background to ensure no difference in color -->
+<div class="global-bg"></div>

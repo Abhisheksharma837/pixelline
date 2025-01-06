@@ -6,6 +6,9 @@ const config: CapacitorConfig = {
   webDir: 'www',
   bundledWebRuntime: false,
   plugins: {
+    Storage: {
+      group: 'CapacitorStorage', // Optional, if needed for configuration
+    },
     SplashScreen: {
       launchShowDuration: 3000,
       launchAutoHide: true,

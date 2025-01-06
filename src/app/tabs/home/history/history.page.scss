@@ -1,0 +1,188 @@
+ion-menu {
+    --background: #ffffff;
+    /* White background for the side menu */
+}
+
+
+// ion-grid {
+//     max-height: 300px;
+//     overflow-y: scroll;
+// }
+
+// ion-grid::-webkit-scrollbar {
+//     width: 8px;
+// }
+
+// ion-grid::-webkit-scrollbar-thumb {
+//     background-color: #d4d4d4;
+//     border-radius: 4px;
+// }
+ion-icon[name="bookmark"] {
+    font-size: 24px;
+    color: #FFFF00; // Yellow color for the bookmark icon
+    margin-top: 8px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+}
+
+ion-item {
+    --color: #000;
+    /* Black text for the profile and menu items */
+    --background: transparent;
+}
+
+ion-button {
+    --padding-start: 0;
+}
+
+ion-label h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+ion-label p {
+    font-size: 14px;
+    color: #6b6b6b;
+    /* Grey color for the email */
+}
+
+.section-divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    /* Divider color */
+    margin: 16px 0;
+}
+
+// .section-divider {
+//     margin: 20px 0;
+//     border-bottom: 1px solid #ccc;
+// }
+
+
+ion-menu {
+    --background: #ffffff;
+    /* White background for the sidebar */
+}
+
+
+ion-toolbar {
+    --background: #ffffff;
+    --ion-color-primary: #3880ff;
+    --ion-color-primary-contrast: #fff;
+    --background: #ffffff !important;
+    /* Toolbar background */
+    box-shadow: none !important;
+    /* Remove any shadows */
+    // border: none; /* Ensure no borders */
+    --border-color: transparent !important;
+    /* Make sure border color is transparent */
+    border: none !important;
+    /* Remove border forcefully */
+}
+
+ion-list {
+    ion-item {
+        --background: #ffffff;
+        color: #000;
+        /* Black text color for menu items */
+    }
+}
+
+ion-menu-button {
+    font-size: 24px;
+    /* Size of the hamburger icon */
+}
+
+ion-menu-button {
+    font-size: 24px;
+    /* Size of the hamburger icon */
+    color: #000;
+    /* Ensure the color is visible */
+    display: block;
+    /* Ensure it's displayed */
+}
+
+ion-content {
+    --background: #f9f9f9;
+    /* Page background */
+    padding: 16px;
+}
+
+/* Favourite and Newest Scan section styling */
+ion-list {
+    background-color: #ffffff;
+    /* White background for sections */
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for cards */
+}
+
+/* Header styles for the section titles */
+ion-item {
+    --background: #ffffff;
+
+    h2 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
+        /* Black text color */
+        margin-bottom: 8px;
+    }
+
+   
+    ion-icon {
+        color: #FFFF00;
+        filter: drop-shadow(1px 1px 0 black) drop-shadow(1px 1px 0 black) drop-shadow(1px 1px 0 black) drop-shadow(1px 1px 0 black);
+
+    }
+}
+
+/* Card styling */
+ion-card {
+    border-radius: 8px;
+    background-color: #ffffff;
+    /* White background for the cards */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for cards */
+    overflow: hidden;
+
+    img {
+        max-height: 120px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    ion-card-content {
+        h3 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            margin-top: 8px;
+        }
+
+        ion-icon {
+            font-size: 24px;
+            color: #FFFF00;
+            /* Change to desired color */
+            margin-top: 8px;
+            /* Adjust positioning */
+            position: absolute;
+            top: 8px;
+            right: 8px;
+        }
+    }
+}
+
+.sort-menu {
+    background: white;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    z-index: 1000;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}

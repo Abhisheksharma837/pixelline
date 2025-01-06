@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ToastIndicatorService } from '../services/toastIndicator/toast-indicator.service';
+import { AuthService } from '../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 
 interface Step {
@@ -23,6 +25,8 @@ export class WalkthroughPage implements OnInit {
 
   constructor(
     private toastService: ToastIndicatorService,
+    private authService: AuthService,  // Inject AuthService
+    private router: Router              // Inject Router for navigation
   ) {
     this.steps = [
       {
@@ -37,7 +41,7 @@ export class WalkthroughPage implements OnInit {
         image: 'assets/logo/3scan.jpeg',
         id: 1,
       },
-      
+
       {
         head: 'Erase',
         p: 'Better than just taking a picture with auto-crop, color-pop technology',
@@ -58,35 +62,39 @@ export class WalkthroughPage implements OnInit {
 
   }
   ngOnInit(): void {
-    //Initially splash Screen
-    setTimeout(() => {
-      this.showImage = true;
-    }, 0); 
-
-    //after 3 second
-    setTimeout(() => {
-      this.showImage = false;  // Hide splash screen
-      this.currentStep = 1;
-      this.stepSubject.next(this.currentStep);
-    }, 3000); // Adjust the timing as needed
-
-    // Subscribe to the stepSubject to manage step changes
-    this.stepSubject.subscribe((step) => {
-      if (step <= this.steps.length) {
-        this.currentStep = step;
-      }
+    // Initially show the splash screen
+    this.showImage = true;
+  
+    // Check if the user is logged in
+    this.authService.getLoggedIn().subscribe((isLoggedIn) => {
+      setTimeout(() => {
+        this.showImage = false; // Hide splash screen after 1 second
+  
+        if (isLoggedIn) {
+          // If the user is logged in, navigate to 'tabs/home'
+          this.router.navigate(['tabs/home']);
+        } else {
+          // Handle the splash screen for non-logged-in users
+          this.currentStep = 1;
+          this.stepSubject.next(this.currentStep);
+  
+          // Optional: Show the splash screen for a specific duration
+          setTimeout(() => {
+            this.showImage = false;
+            this.currentStep = 1;
+            this.stepSubject.next(this.currentStep);
+          }, 3000); // Adjust timing as needed
+        }
+      }, 1000); // Delay before navigation
     });
-  console.log(this.currentStep);
-  
   }
-  
 
   nextStep() {
-    if (this.currentStep < this.steps.length ) {
-      this.stepSubject.next(this.currentStep + 1);
+    if (this.currentStep < this.steps.length) {
+      this.currentStep++;
+      this.stepSubject.next(this.currentStep);
     }
     console.log(this.currentStep);
-    // this.toastService.showToast('Walk Through',"top");
   }
 
 }

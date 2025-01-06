@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleMenu()">
+        <ion-icon name="funnel-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+ <!-- Dropdown Menu for Sorting -->
+ <ion-list *ngIf="showSortMenu" class="sort-menu">
+  <ion-item button (click)="sortBy('newest')">Newest Scan</ion-item>
+  <ion-item button (click)="sortBy('oldest')">Oldest Scan</ion-item>
+  <ion-item button (click)="sortBy('name')">Name</ion-item>
+  <ion-item button (click)="sortBy('favourite')">Favourite Scan</ion-item>
+</ion-list>
+
+<!-- Main Content -->
+<ion-content id="main-content" (click)="closeMenuIfClickedOutside($event)">
+  <!-- Newest Scan Section -->
+  <ion-list *ngIf="showFavouriteScanSection">
+      <ion-item lines="none">
+        <ion-label>
+            <h2>Favourite scan</h2>
+            <h3 *ngIf="!favouriteReports || favouriteReports.length === 0">
+                No Favourites scan yet . Marks PDF's as favourite to view them here</h3>
+        </ion-label>
+        <ion-icon name="bookmark" slot="end"></ion-icon>
+    </ion-item>
+    <!-- <ion-label >
+        <h3>No Favourites scan yet . Marks PDF's as favourite to view them here</h3>
+    </ion-label> -->
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="6" *ngFor="let scan of favouriteReports | slice:0:100">
+                <ion-card (click)="openPdf(scan.fileName)">
+                    <img [src]="scan.image" alt="Image for {{ scan.fileName }}">
+                    <ion-card-content>
+                        <h3>{{ scan.fileName | slice:0:8 }}</h3>
+                        <h3>Pages: {{scan.numberOfPages}}</h3>
+                        <!-- <h3>Date: {{scan.date}}</h3>
+                        <h3>Time: {{scan.time}}</h3> -->
+                        <ion-icon (click)="toggleBookmark(scan.id, 'favourite')" name="bookmark"
+                            slot="end"></ion-icon> <!-- Added bookmark icon -->
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-list>
+  <!-- Divider Line -->
+  <div class="section-divider"></div>
+
+  <!-- newest  Scan Section -->
+  <ion-list *ngIf="showNewestScanSection">
+    <ion-item lines="none">
+      <ion-label>
+          <h2>Newest Scan</h2>
+          <h3 *ngIf="!newestReports || newestReports.length === 0 "  
+          >No Newest scans available. Please scan your notebook QR code for making your PDF's. </h3>
+      </ion-label>
+  </ion-item>
+  <!-- <ion-label *ngIf="!newestReports">
+      <h3>No Newest scans available. Please scan your notebook QR code for making your PDF's. </h3>
+  </ion-label> -->
+
+
+  <ion-grid>
+      <ion-row>
+          <ion-col size="6" *ngFor="let scan of newestReports | slice:0:100">
+              <ion-card (click)="openPdf(scan.fileName)">
+                  <img [src]="scan.image" alt="Image for {{ scan.fileName }}">
+                  <ion-card-content>
+                      <h3>{{ scan.fileName | slice:0:8 }}</h3>
+                      <h3>Pages: {{scan.numberOfPages}}</h3>
+                      <!-- <h3>Date: {{scan.date}}</h3>
+                      <h3>Time: {{scan.time}}</h3> -->
+                      <ion-icon (click)="toggleBookmark(scan.id, 'newest')"
+                      name="bookmark-outline"  slot="end">
+                      </ion-icon> <!-- Added bookmark icon -->
+                  </ion-card-content>
+              </ion-card>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-list>
+</ion-content>

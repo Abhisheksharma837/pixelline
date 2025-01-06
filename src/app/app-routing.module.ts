@@ -8,16 +8,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
     path: 'couponcode',
@@ -36,15 +36,41 @@ const routes: Routes = [
     loadChildren: () => import('./create-new-password/create-new-password.module').then( m => m.CreateNewPasswordPageModule)
   },
   {
-    path: 'profile-setting',
-    loadChildren: () => import('./home/setting/profile-setting/profile-setting.module').then( m => m.ProfileSettingPageModule)
+    path: 'history',
+    loadChildren: () => import('./tabs/home/history/history.module').then( m => m.HistoryPageModule)
   },
   {
-    path: 'edit-profile',
-    loadChildren: () => import('./home/setting/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
+    path: 'how-to-work',
+    loadChildren: () => import('./tabs/home/how-to-work/how-to-work.module').then( m => m.HowToWorkPageModule)
   },
-
- 
+  {
+    path: 'contact-us',
+    loadChildren: () => import('./tabs/home/contact-us/contact-us.module').then( m => m.ContactUsPageModule)
+  },
+  {
+    path: 'help-page',
+    loadChildren: () => import('./tabs/home/help-page/help-page.module').then( m => m.HelpPagePageModule)
+  },
+  {
+    path: 'privacy',
+    loadChildren: () => import('./tabs/home/privacy/privacy.module').then( m => m.PrivacyPageModule)
+  },
+  {
+    path: 'subscription',
+    loadChildren: () => import('./tabs/home/subscription/subscription.module').then( m => m.SubscriptionPageModule)
+  },
+  {
+    path: 'camera',
+    loadChildren: () => import('./tabs/home/camera/camera.module').then( m => m.CameraPageModule)
+  },
+  {
+    path: 'terms-condition',
+    loadChildren: () => import('./tabs/home/terms-condition/terms-condition.module').then( m => m.TermsConditionPageModule)
+  },
+  {
+    path: 'default-file-name',
+    loadChildren: () => import('./tabs/home/default-file-name/default-file-name.module').then( m => m.DefaultFileNamePageModule)
+  }
 ];
 
 @NgModule({

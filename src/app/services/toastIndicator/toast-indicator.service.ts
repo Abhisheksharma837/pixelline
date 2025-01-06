@@ -10,7 +10,7 @@ export class ToastIndicatorService {
 
   constructor(private toastController: ToastController) { }
 
-  async showToast(message: string, position: 'top' | 'bottom' | 'middle' = 'top') {
+  async showToast(message: string, color: 'success' | 'danger' = 'success', position: 'top' | 'bottom' | 'middle' = 'top') {
     if (this.toast) {
       await this.toast.dismiss(); // Dismiss any existing toast before showing a new one
     }
@@ -19,8 +19,8 @@ export class ToastIndicatorService {
       message: message,
       duration: 2000, // Adjust duration as needed
       position: position,
-      color: 'success',
-      buttons: [{ text: 'Close', role: 'cancel' }]
+      color: color,
+      // buttons: [{ text: 'Close', role: 'cancel' }]
     });
 
     await this.toast.present();

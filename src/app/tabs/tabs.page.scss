@@ -1,0 +1,15 @@
+ion-tab-bar {
+    height: 10%;
+    border: 1px solid #434242;
+    width: 100%;
+    --background: #434242;
+  }
+  
+  ion-tab-button {
+    --color: #FFFFFF; /* Default color for unselected icons and text */
+    --ripple-color: var(--ion-color-primary);
+  }
+  
+  ion-tab-button.tab-selected {
+    color: #DCD245;
+  }

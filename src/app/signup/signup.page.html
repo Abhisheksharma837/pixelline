@@ -1,33 +1,55 @@
 <ion-content ion-padding>
   <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
-  <div class="signup-container">
-    <h1 class="signup-heading">Sign up</h1>
-    <p class="signup-subheading"  style="text-align: start; margin-inline: 8%;">Create your account</p>
-    <ion-item>
-      <ion-icon name="person-outline" slot="start"></ion-icon>
-      <ion-input formControlName="name" class = "placedetails " placeholder="Enter Your Name"></ion-input>
-    </ion-item>
-    
-    <ion-item>
-      <ion-icon name="mail-outline" slot="start"></ion-icon>
-      <ion-input formControlName="emailOrPhone" class = "placedetails " placeholder="Enter Your Email"></ion-input>
-    </ion-item >
-    
-    <ion-item>
-      <ion-icon name="call-outline" slot="start"></ion-icon>
-      <ion-input formControlName="emailOrPhone"   class = "placedetails " placeholder="Enter Your Phone No."></ion-input>
-    </ion-item>
-    
-    <ion-item>
-      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
-      <ion-input  formControlName="password"  class = "placedetails " type="password" placeholder="Enter Your Password"></ion-input>
-    </ion-item>
+    <div class="signup-container">
+      <h1 class="signup-heading">Sign up</h1>
+      <p class="signup-subheading">Create your account</p>
+      
+      <!-- Name Input -->
+      <ion-item>
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-input formControlName="name" class="placedetails" placeholder="Enter Your Name"></ion-input>
+      </ion-item>
+      <div *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">
+        <small class="error-text">Name is required (minimum 3 characters)</small>
+      </div>
 
-    <ion-button  type="submit" [disabled]="signupForm.invalid" class="signup-button" routerLink="/couponcode">Sign up</ion-button>
-    
-  </div>
-  <div class="login-text">
-    <p>Already have an account? <ion-router-link routerLink="/login" color="primary" >Log in</ion-router-link></p>
-  </div>
+      <!-- Email Input -->
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-input formControlName="email" class="placedetails" placeholder="Enter Your Email"></ion-input>
+      </ion-item>
+      <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+        <small class="error-text">Please enter a valid email</small>
+      </div>
+
+      <!-- Phone Input -->
+      <ion-item>
+        <ion-icon name="call-outline" slot="start"></ion-icon>
+        <ion-input formControlName="phone" class="placedetails" placeholder="Enter Your Phone No."></ion-input>
+      </ion-item>
+      <div *ngIf="signupForm.get('phone')?.invalid && signupForm.get('phone')?.touched">
+        <small class="error-text">Please enter a valid 10-digit phone number</small>
+      </div>
+
+      <!-- Password Input -->
+      <ion-item>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input formControlName="password" class="placedetails" type="password" placeholder="Enter Your Password" (ionInput)="evaluatePasswordStrength($event.detail.value || '')"></ion-input>
+      </ion-item>
+      <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+        <small class="error-text">Password must be at least 8 characters long</small>
+      </div>
+      <div *ngIf="signupForm.get('password')?.value?.length >= 8">
+        <small [ngClass]="{'password-strength-blue': signupForm.get('password')?.value?.length >= 8}">Password Strength: {{passwordsStrenth}}</small>
+      </div>
+
+      <!-- Signup Button -->
+      <ion-button type="submit" [disabled]="signupForm.invalid" class="signup-button" >Sign up</ion-button>
+
+      <!-- Link to login -->
+      <div class="login-text">
+        <p>Already have an account? <ion-router-link routerLink="/login" color="primary">Log in</ion-router-link></p>
+      </div>
+    </div>
   </form>
 </ion-content>

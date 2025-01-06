@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Documents</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+   <!-- Image container to display captured images -->
+   <div class="image-container">
+    <div *ngFor="let image of selectedImages; let i = index" class="image-item">
+      <img [src]="image" />
+      <ion-button fill="clear" (click)="presentImageOptions(i)">
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class="camera-controls">
+    <!-- <ion-fab-button (click)="takePhoto()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button> -->
+    <!-- <ion-button (click)="startCameraProcess()">Add more images</ion-button> -->
+    <ion-button expand="block" class="capture-btn" (click)="captureImage()"  *ngIf="isCameraOpen">
+      <ion-icon name="camera" ></ion-icon>
+    </ion-button>
+    <!-- <ion-button expand="block" class="capture-btn" (click)="flipCamera()" *ngIf="isCameraOpen">
+      <ion-icon name="camera" ></ion-icon>
+    </ion-button> -->
+    <ion-button (click)="takePhoto()" *ngIf="!isCameraOpen">Add more images</ion-button>
+    <ion-button (click)="presentFileNameAlert()" *ngIf="!isCameraOpen">Save as PDF</ion-button>
+
+  </div>
+</ion-footer>

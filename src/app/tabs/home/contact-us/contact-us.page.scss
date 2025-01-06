@@ -1,0 +1,68 @@
+/* Style for the toolbar */
+ion-toolbar {
+    --ion-color-primary: #3880ff;
+    /* back button color */
+    --ion-color-primary-contrast: #fff;
+    --background: #ffffff !important;
+    /* Toolbar background */
+    box-shadow: none !important;
+    /* Remove any shadows */
+    --border-color: transparent !important;
+    /* Make sure border color is transparent */
+    border: none !important;
+    /* Remove border forcefully */
+}
+
+
+// ion-title{
+//     color: #000;
+//     font-size:24px;
+//     font-weight: bold;
+
+// }
+
+
+ion-content {
+    --background: #f9f9f9;
+    /* Page background */
+    padding: 16px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    background-color: #f0f4f7;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #3880ff;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.icon {
+    font-size: 28px;
+    color: #3880ff;
+    margin-right: 10px;
+}
+
+.contact-info {
+    font-size: 18px;
+    color: #000;
+    text-decoration: none;
+}
+
+.contact-info:hover {
+    color: #3880ff;
+}

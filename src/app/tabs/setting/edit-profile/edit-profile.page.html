@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+      <div class="logo-container">
+          <img src="assets/Account-image.png" alt="Profile Image" class="logo">
+      </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="profile-container">
+    <div class="profile-pic">
+      <ion-avatar class="avatar-pic">
+        <ion-img src="assets/setting.svg"></ion-img>
+      </ion-avatar>
+       <ion-icon color="warning" name="create" class="smiley-icon"></ion-icon>
+    </div>
+
+    <!-- Profile Details -->
+    <div class="profile-info">
+      <h2>Hemank Bhardwaj</h2>
+      <p>Joined in Nov 2004</p>
+    </div>
+
+    <!-- Account Information -->
+    <ion-list>
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <p slot="end">Hemank Bhardwaj</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>E-Mail</ion-label>
+        <p slot="end">hemank.bhardwaj02</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Age</ion-label>
+        <p slot="end">22</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Gender</ion-label>
+        <p slot="end">Not Set</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Occupation</ion-label>
+        <p slot="end">Student</p>
+      </ion-item>
+    </ion-list>
+
+    <!-- Actions -->
+    <ion-list lines="full">
+      <ion-item button>
+        <ion-label>Reset Password</ion-label>
+      </ion-item>
+      <ion-item button lines="none" class="logout" (click)="logout()">
+        <ion-label color="danger">Log Out</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button style="--width: 80px; --height: 80px;">
+        <ion-icon color="light" name="chevron-back-circle-outline"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
+</ion-content>

@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="logo-container">
+      <img src="assets/settings.png" alt="Profile Image" class="logo">
+  </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="settings-list">
+    <ion-item (click)="howToWork()">
+      <ion-img style="height: 34px;" slot="start" src="assets/icon/howTo.png"></ion-img>
+      <ion-label>
+        <h3>How To</h3>
+        <p>Review the onboarding tutorial for the application.</p>
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="defaultFile()">
+      <ion-img style="height: 34px;" slot="start" src="assets/icon/default-file.png"></ion-img>
+      <ion-label>
+        <h3>Default File Naming Template</h3>
+        <p>Change the default format of file names saved.</p>
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="helpPage()">
+      <ion-img style="height: 34px;" slot="start" src="assets/icon/help-center.png"></ion-img>
+      <ion-label>
+        <h3>Help Center</h3>
+        <p>Check out the Help Center for FAQ and more helpful resources.</p>
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="privacyPolicy()">
+      <ion-img style="height: 34px;" slot="start" src="assets/icon/privacy.png"></ion-img>
+      <ion-label>
+        <h3>Privacy Policy</h3>
+        <p>Details on how your privacy is handled.</p>
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="termsCondition()">
+      <ion-img style="height: 34px;" slot="start" src="assets/icon/settings.png"></ion-img>
+      <ion-label>
+        <h3>Terms of Service</h3>
+        <p>See the user agreement.</p>
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="contactUs()">
+      <ion-img style="height: 34px;" slot="start" src="assets/icon/contact.png"></ion-img>
+      <ion-label>
+        <h3>Contact</h3>
+        <p>Contact our support team.</p>
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="contactUs()">
+      <ion-icon slot="start" color="warning" name="trash-outline"></ion-icon>
+      <ion-label>
+        <h3>Delete Account</h3>
+        <p>Delete Your Account.</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<!-- <ion-content class="profile-settings-content">
+  <ion-list>
+      <ion-item button (click)="editProfile()">
+          <ion-label>Edit Profile</ion-label>
+      </ion-item>
+      <ion-item button detail lines="full" (click)="logOut()">
+          <ion-label color="danger">Log Out</ion-label>
+      </ion-item>
+      <ion-item button detail lines="full" (click)="deactivateAccount()">
+          <ion-label color="danger">Deactivate Account</ion-label>
+      </ion-item>
+      <ion-item button detail lines="full" (click)="resetPassword()">
+          <ion-label color="blue">Reset Password</ion-label>
+      </ion-item>
+  </ion-list>
+</ion-content> -->

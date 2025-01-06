@@ -1,0 +1,82 @@
+ion-toolbar {
+    --ion-color-primary: #3880ff;
+    --ion-color-primary-contrast: #fff;
+    --background: #ffffff !important;
+    box-shadow: none !important;
+    --border-color: transparent !important;
+    border: none !important;
+}
+
+ion-content {
+    --background: #ffffff !important;
+    padding: 16px;
+}
+
+.subscription-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .subscription-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+  
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  
+    .price {
+      font-size: 40px;
+      margin: 10px 0;
+    }
+  
+    ul.features {
+      padding: 0;
+      margin: 15px 0;
+      list-style: none;
+      text-align: left;
+  
+      li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+  
+      ion-icon {
+        margin-right: 10px;
+      }
+    }
+  
+    .order-button {
+      margin-top: 20px;
+      font-size: 18px;
+      --background: #fff;
+      --color: var(--ion-color-primary);
+      --border-radius: 50px;
+    }
+  }
+  
+  /* Basic Plan Colors */
+  .basic-plan {
+    background: linear-gradient(200deg, #8A2BE2, #DA70D6);
+  }
+  
+  /* Standard Plan Colors */
+  .standard-plan {
+    background: linear-gradient(200deg, #1E90FF, #00BFFF);
+  }
+  
+  /* Premium Plan Colors */
+  .premium-plan {
+    background: linear-gradient(200deg, #FF1493, #FF69B4);
+  }
+  
